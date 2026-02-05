@@ -1,8 +1,11 @@
 package me.konoplanyy.soulshard.fabric;
 
+import me.konoplanyy.soulshard.client.render.SoulShardRenderer;
+import me.konoplanyy.soulshard.registry.ModEntities;
 import net.fabricmc.api.ModInitializer;
 
 import me.konoplanyy.soulshard.ExampleMod;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 
 public final class ExampleModFabric implements ModInitializer {
     @Override

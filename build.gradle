@@ -9,6 +9,9 @@ architectury {
 }
 
 allprojects {
+    repositories {
+        maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+    }
     group = rootProject.maven_group
     version = rootProject.mod_version
 }

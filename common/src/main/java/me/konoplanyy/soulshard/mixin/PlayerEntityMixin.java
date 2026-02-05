@@ -1,5 +1,7 @@
 package me.konoplanyy.soulshard.mixin;
 
+import me.konoplanyy.soulshard.entity.SoulShardEntity;
+import me.konoplanyy.soulshard.registry.ModEntities;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.ItemStack;
@@ -15,20 +17,25 @@ public class PlayerEntityMixin {
         System.out.println("Речі не падають)");
 
         Player player = (Player) (Object) this;
-        java.util.List<net.minecraft.world.item.ItemStack> itemsToSave = new java.util.ArrayList<>();
+
+        SoulShardEntity soulShard = new SoulShardEntity(ModEntities.SOUL_SHARD.get(), player.level());
 
         for (int i = 0; i < player.getInventory().getContainerSize(); i++)
         {
             net.minecraft.world.item.ItemStack stack = player.getInventory().getItem(i);
             if (!stack.isEmpty())
             {
-                itemsToSave.add(stack.copy());
+                soulShard.addItem(stack.copy());
                 player.getInventory().setItem(i, ItemStack.EMPTY);
             }
         }
 
-        System.out.println("Збережено предметів: " + itemsToSave.size());
+        if(!soulShard.getInventory().isEmpty())
+        {
+            soulShard.setPos(player.getX(), player.getY(), player.getZ());
+            player.level().addFreshEntity(soulShard);
+            soulShard.setOwner(player);
+        }
 
-        ci.cancel();
     }
 }

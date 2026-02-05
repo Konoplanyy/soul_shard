@@ -1,7 +1,14 @@
 package me.konoplanyy.soulshard;
 import dev.architectury.event.events.common.EntityEvent;
 import dev.architectury.event.EventResult;
+import me.konoplanyy.soulshard.entity.SoulShardEntity;
+import me.konoplanyy.soulshard.registry.ModEntities;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.player.Player;
+
+import java.util.function.Supplier;
+
 
 public final class ExampleMod {
     public static final String MOD_ID = "soul_shard";
@@ -16,5 +23,7 @@ public final class ExampleMod {
 
             return EventResult.pass();
         });
+
+        ModEntities.init();
     }
 }
