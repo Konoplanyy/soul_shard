@@ -1,6 +1,7 @@
 package me.konoplanyy.soulshard.entity;
 
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleContainer;
@@ -21,6 +22,8 @@ import software.bernie.geckolib.animation.AnimationController;
 import software.bernie.geckolib.animation.RawAnimation;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class SoulShardEntity extends PathfinderMob implements GeoEntity {
@@ -75,6 +78,66 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
         }
     }
 
+    public void setInventoryToPlayer(Player player){
+        if (player.level().isClientSide) return;
+
+        var playerInv = player.getInventory();
+
+        // Зберігаємо старі речі гравця
+        List<ItemStack> oldItems = new ArrayList<>();
+        for (int i = 0; i < playerInv.getContainerSize(); i++){
+            ItemStack stack = playerInv.getItem(i);
+            if (!stack.isEmpty()) {
+                oldItems.add(stack.copy());
+            }
+        }
+
+        // Очищаємо інвентар
+        playerInv.clearContent();
+
+        // Копіюємо речі з кристала на точні позиції
+        for (int i = 0; i < 36; i++){
+            ItemStack stack = inventory.getItem(i);
+            playerInv.items.set(i, stack.isEmpty() ? ItemStack.EMPTY : stack.copy());
+        }
+
+        // Броня
+        for (int i = 0; i < 4; i++){
+            ItemStack stack = inventory.getItem(36 + i);
+            playerInv.armor.set(i, stack.isEmpty() ? ItemStack.EMPTY : stack.copy());
+        }
+
+        // Offhand
+        ItemStack offhandStack = inventory.getItem(40);
+        playerInv.offhand.set(0, offhandStack.isEmpty() ? ItemStack.EMPTY : offhandStack.copy());
+
+        // Додаємо старі речі у вільні слоти
+        for (ItemStack oldStack : oldItems) {
+            boolean added = false;
+
+            // Шукаємо вільний слот
+            for (int i = 0; i < 36; i++) {
+                if (playerInv.items.get(i).isEmpty()) {
+                    playerInv.items.set(i, oldStack);
+                    added = true;
+                    break;
+                }
+            }
+
+            // Якщо немає місця - викидаємо під гравцем
+            if (!added) {
+                player.drop(oldStack, false);
+            }
+        }
+
+        // Синхронізуємо
+        if (player instanceof ServerPlayer serverPlayer) {
+            serverPlayer.inventoryMenu.broadcastChanges();
+        }
+
+        playerInv.setChanged();
+    }
+
     public static AttributeSupplier.Builder createAttributes() {
         return PathfinderMob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 10.0D)
@@ -101,7 +164,9 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     public InteractionResult interactAt(Player player, Vec3 hitPos, InteractionHand hand)
     {
         if (!level().isClientSide && isOwner(player)){
-            this.kill();
+            setInventoryToPlayer(player);
+            inventory.clearContent();
+            this.discard();
             return InteractionResult.SUCCESS;
         }
         return InteractionResult.PASS;

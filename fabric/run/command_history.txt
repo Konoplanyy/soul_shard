@@ -5,3 +5,11 @@
 /kill d20cccdd-d834-47f1-ac94-e8ac84779aca
 /kill
 /summon soulshard:soul_shard
+/time set day
+/gamerule doDaylightCycle false
+/gamerule doWeatherCycle false
+/kill
+/spawnpoint
+/kill
+/spawnpoint
+/kill
