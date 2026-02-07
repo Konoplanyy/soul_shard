@@ -13,3 +13,6 @@
 /kill
 /spawnpoint
 /kill
+/kick
+/kill
+/summon soulshard:soul_shard
