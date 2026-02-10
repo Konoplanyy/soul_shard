@@ -1,15 +1,15 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "MIT License"
 
 [[mods]]
 modId = "soul_shard"
 version = "${version}"
 displayName = "Soul Shard"
-authors = "Me!"
+authors = "Konoplanyy"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+ Soul Shard — A Vanilla+ death utility that neatly contains your dropped items in a breakable crystal, keeping your loot organized while preserving the classic 5-minute risk.
 '''
 #logoFile = ""
 

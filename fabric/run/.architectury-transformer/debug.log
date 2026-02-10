@@ -1,7 +1,7 @@
 [Architectury Transformer] Architectury Runtime 5.2.87
-[Architectury Transformer DEBUG] Closed File Systems for /Users/dmytro/Projects/minecraft mods/soul_shard/common/build/devlibs/soul_shard-common-1.0.0-dev.jar
+[Architectury Transformer DEBUG] Closed File Systems for /Users/dmytro/Projects/minecraft mods/soul_shard/common/build/devlibs/soul_shard-common-1.1.0-dev.jar
 [Architectury Transformer DEBUG] Preparing tiny remapper prepared transformer: dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Provided 112 classpath jar(s):
+[Architectury Transformer DEBUG] Provided 114 classpath jar(s):
 [Architectury Transformer DEBUG]  - /Users/dmytro/.gradle/caches/modules-2/files-2.1/dev.architectury/architectury-injectables/1.0.10/62db2a366d662606d1b23ad02ccc3212ed37ec3/architectury-injectables-1.0.10.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/.gradle/caches/modules-2/files-2.1/net.fabricmc/fabric-loader/0.18.4/dc4682125d5db647d6ce80a98b98945835adcd4b/fabric-loader-0.18.4.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/26.0.2/c7ce3cdeda3d18909368dfe5977332dfad326c6d/annotations-26.0.2.jar
@@ -59,39 +59,45 @@
 [Architectury Transformer DEBUG]  - /Users/dmytro/.gradle/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.3.3/29589b5f87ed335a6c7e7ee6a5775f81f97ecb84/lwjgl-3.3.3.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/.gradle/caches/modules-2/files-2.1/org.lz4/lz4-java/1.8.0/4b986a99445e49ea5fbf5d149c4b63f6ed6c6780/lz4-java-1.8.0.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.9/7cf2726fdcfbc8610f9a71fb3ed639871f315340/slf4j-api-2.0.9.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-e8f813e4fa/1.21.1-loom.mappings.1_21_1.layered+hash.40359-v2/minecraft-merged-e8f813e4fa-1.21.1-loom.mappings.1_21_1.layered+hash.40359-v2.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-bc35085bc7/1.21.1-loom.mappings.1_21_1.layered+hash.40359-v2/minecraft-merged-bc35085bc7-1.21.1-loom.mappings.1_21_1.layered+hash.40359-v2.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.97.Final/54188f271e388e7f313aea995e82f58ce2cdb809/netty-transport-native-epoll-4.1.97.Final-linux-x86_64.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.97.Final/5514744c588190ffda076b35a9b8c9f24946a960/netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/me/shedaniel/cloth/cloth-config-fabric-b9d2d3ba/15.0.140/cloth-config-fabric-b9d2d3ba-15.0.140-fabric.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/software/bernie/geckolib/geckolib-fabric-1.21.1-b9d2d3ba/4.8.3/geckolib-fabric-1.21.1-b9d2d3ba-4.8.3.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-api-b9d2d3ba/0.116.8+1.21.1/fabric-api-b9d2d3ba-0.116.8+1.21.1.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/dev/architectury/architectury-fabric-b9d2d3ba/13.0.8/architectury-fabric-b9d2d3ba-13.0.8.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-content-registries-v0-b9d2d3ba/8.0.19+b559734419/fabric-content-registries-v0-b9d2d3ba-8.0.19+b559734419.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-gametest-api-v1-b9d2d3ba/2.0.5+6fc22b9919/fabric-gametest-api-v1-b9d2d3ba-2.0.5+6fc22b9919.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-item-api-v1-b9d2d3ba/11.2.0+3b3cb2e819/fabric-item-api-v1-b9d2d3ba-11.2.0+3b3cb2e819.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-data-generation-api-v1-b9d2d3ba/20.2.35+37516cd619/fabric-data-generation-api-v1-b9d2d3ba-20.2.35+37516cd619.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-item-group-api-v1-b9d2d3ba/4.1.7+def88e3a19/fabric-item-group-api-v1-b9d2d3ba-4.1.7+def88e3a19.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-loot-api-v2-b9d2d3ba/3.0.15+3f89f5a519/fabric-loot-api-v2-b9d2d3ba-3.0.15+3f89f5a519.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-loot-api-v3-b9d2d3ba/1.0.3+3f89f5a519/fabric-loot-api-v3-b9d2d3ba-1.0.3+3f89f5a519.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-data-attachment-api-v1-b9d2d3ba/1.4.6+5b36e0f719/fabric-data-attachment-api-v1-b9d2d3ba-1.4.6+5b36e0f719.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-object-builder-api-v1-b9d2d3ba/15.2.1+40875a9319/fabric-object-builder-api-v1-b9d2d3ba-15.2.1+40875a9319.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-resource-loader-v0-b9d2d3ba/1.3.1+5b5275af19/fabric-resource-loader-v0-b9d2d3ba-1.3.1+5b5275af19.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-screen-api-v1-b9d2d3ba/2.0.25+8b68f1c719/fabric-screen-api-v1-b9d2d3ba-2.0.25+8b68f1c719.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-keybindings-v0-b9d2d3ba/0.2.45+df3654b319/fabric-keybindings-v0-b9d2d3ba-0.2.45+df3654b319.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-key-binding-api-v1-b9d2d3ba/1.0.47+0af3f5a719/fabric-key-binding-api-v1-b9d2d3ba-1.0.47+0af3f5a719.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-transfer-api-v1-b9d2d3ba/5.4.3+c24bd99419/fabric-transfer-api-v1-b9d2d3ba-5.4.3+c24bd99419.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-api-lookup-api-v1-b9d2d3ba/1.6.71+b559734419/fabric-api-lookup-api-v1-b9d2d3ba-1.6.71+b559734419.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-convention-tags-v1-b9d2d3ba/2.1.6+7f945d5b19/fabric-convention-tags-v1-b9d2d3ba-2.1.6+7f945d5b19.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-convention-tags-v2-b9d2d3ba/2.11.2+fa89716719/fabric-convention-tags-v2-b9d2d3ba-2.11.2+fa89716719.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-lifecycle-events-v1-b9d2d3ba/2.6.0+0865547519/fabric-lifecycle-events-v1-b9d2d3ba-2.6.0+0865547519.jar
+[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/me/shedaniel/cloth/basic-math-b9d2d3ba/0.6.1/basic-math-b9d2d3ba-0.6.1.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-blockrenderlayer-v1-b9d2d3ba/1.1.52+0af3f5a719/fabric-blockrenderlayer-v1-b9d2d3ba-1.1.52+0af3f5a719.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-client-tags-api-v1-b9d2d3ba/1.1.15+6573ed8c19/fabric-client-tags-api-v1-b9d2d3ba-1.1.15+6573ed8c19.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-command-api-v1-b9d2d3ba/1.2.49+f71b366f19/fabric-command-api-v1-b9d2d3ba-1.2.49+f71b366f19.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-commands-v0-b9d2d3ba/0.2.66+df3654b319/fabric-commands-v0-b9d2d3ba-0.2.66+df3654b319.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-command-api-v2-b9d2d3ba/2.2.28+6ced4dd919/fabric-command-api-v2-b9d2d3ba-2.2.28+6ced4dd919.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-content-registries-v0-b9d2d3ba/8.0.19+b559734419/fabric-content-registries-v0-b9d2d3ba-8.0.19+b559734419.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-data-generation-api-v1-b9d2d3ba/20.2.35+37516cd619/fabric-data-generation-api-v1-b9d2d3ba-20.2.35+37516cd619.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-convention-tags-v1-b9d2d3ba/2.1.6+7f945d5b19/fabric-convention-tags-v1-b9d2d3ba-2.1.6+7f945d5b19.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-convention-tags-v2-b9d2d3ba/2.11.2+fa89716719/fabric-convention-tags-v2-b9d2d3ba-2.11.2+fa89716719.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-data-attachment-api-v1-b9d2d3ba/1.4.6+5b36e0f719/fabric-data-attachment-api-v1-b9d2d3ba-1.4.6+5b36e0f719.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-entity-events-v1-b9d2d3ba/1.8.0+2b27e0a419/fabric-entity-events-v1-b9d2d3ba-1.8.0+2b27e0a419.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-events-interaction-v0-b9d2d3ba/0.7.13+ba9dae0619/fabric-events-interaction-v0-b9d2d3ba-0.7.13+ba9dae0619.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-gametest-api-v1-b9d2d3ba/2.0.5+6fc22b9919/fabric-gametest-api-v1-b9d2d3ba-2.0.5+6fc22b9919.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-item-api-v1-b9d2d3ba/11.2.0+3b3cb2e819/fabric-item-api-v1-b9d2d3ba-11.2.0+3b3cb2e819.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-item-group-api-v1-b9d2d3ba/4.1.7+def88e3a19/fabric-item-group-api-v1-b9d2d3ba-4.1.7+def88e3a19.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-lifecycle-events-v1-b9d2d3ba/2.6.0+0865547519/fabric-lifecycle-events-v1-b9d2d3ba-2.6.0+0865547519.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-loot-api-v2-b9d2d3ba/3.0.15+3f89f5a519/fabric-loot-api-v2-b9d2d3ba-3.0.15+3f89f5a519.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-loot-api-v3-b9d2d3ba/1.0.3+3f89f5a519/fabric-loot-api-v3-b9d2d3ba-1.0.3+3f89f5a519.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-message-api-v1-b9d2d3ba/6.0.14+8aaf3aca19/fabric-message-api-v1-b9d2d3ba-6.0.14+8aaf3aca19.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-model-loading-api-v1-b9d2d3ba/2.1.0+b4d813fc19/fabric-model-loading-api-v1-b9d2d3ba-2.1.0+b4d813fc19.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-recipe-api-v1-b9d2d3ba/5.0.15+2475392c19/fabric-recipe-api-v1-b9d2d3ba-5.0.15+2475392c19.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-screen-handler-api-v1-b9d2d3ba/1.3.90+b559734419/fabric-screen-handler-api-v1-b9d2d3ba-1.3.90+b559734419.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-registry-sync-v0-b9d2d3ba/5.3.1+e3eddc2119/fabric-registry-sync-v0-b9d2d3ba-5.3.1+e3eddc2119.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-networking-api-v1-b9d2d3ba/4.3.0+c7469b2119/fabric-networking-api-v1-b9d2d3ba-4.3.0+c7469b2119.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-object-builder-api-v1-b9d2d3ba/15.2.1+40875a9319/fabric-object-builder-api-v1-b9d2d3ba-15.2.1+40875a9319.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-particles-v1-b9d2d3ba/4.0.2+6573ed8c19/fabric-particles-v1-b9d2d3ba-4.0.2+6573ed8c19.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-renderer-indigo-b9d2d3ba/1.7.1+c705a49c19/fabric-renderer-indigo-b9d2d3ba-1.7.1+c705a49c19.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-renderer-api-v1-b9d2d3ba/3.4.1+b4d813fc19/fabric-renderer-api-v1-b9d2d3ba-3.4.1+b4d813fc19.jar
@@ -99,7 +105,6 @@
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-renderer-registries-v1-b9d2d3ba/3.2.69+df3654b319/fabric-renderer-registries-v1-b9d2d3ba-3.2.69+df3654b319.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-rendering-v0-b9d2d3ba/1.1.72+df3654b319/fabric-rendering-v0-b9d2d3ba-1.1.72+df3654b319.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-rendering-v1-b9d2d3ba/5.1.0+ab4c25a019/fabric-rendering-v1-b9d2d3ba-5.1.0+ab4c25a019.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-screen-api-v1-b9d2d3ba/2.0.25+8b68f1c719/fabric-screen-api-v1-b9d2d3ba-2.0.25+8b68f1c719.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-api-base-b9d2d3ba/0.4.42+6573ed8c19/fabric-api-base-b9d2d3ba-0.4.42+6573ed8c19.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-biome-api-v1-b9d2d3ba/13.0.31+d527f9fd19/fabric-biome-api-v1-b9d2d3ba-13.0.31+d527f9fd19.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-block-api-v1-b9d2d3ba/1.1.0+0bc3503219/fabric-block-api-v1-b9d2d3ba-1.1.0+0bc3503219.jar
@@ -108,53 +113,60 @@
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-crash-report-info-v1-b9d2d3ba/0.2.29+0af3f5a719/fabric-crash-report-info-v1-b9d2d3ba-0.2.29+0af3f5a719.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-dimensions-v1-b9d2d3ba/4.0.1+65213ef819/fabric-dimensions-v1-b9d2d3ba-4.0.1+65213ef819.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-game-rule-api-v1-b9d2d3ba/1.0.53+6ced4dd919/fabric-game-rule-api-v1-b9d2d3ba-1.0.53+6ced4dd919.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-keybindings-v0-b9d2d3ba/0.2.45+df3654b319/fabric-keybindings-v0-b9d2d3ba-0.2.45+df3654b319.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-key-binding-api-v1-b9d2d3ba/1.0.47+0af3f5a719/fabric-key-binding-api-v1-b9d2d3ba-1.0.47+0af3f5a719.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-resource-conditions-api-v1-b9d2d3ba/4.3.0+8dc279b119/fabric-resource-conditions-api-v1-b9d2d3ba-4.3.0+8dc279b119.jar
-[Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-resource-loader-v0-b9d2d3ba/1.3.1+5b5275af19/fabric-resource-loader-v0-b9d2d3ba-1.3.1+5b5275af19.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-sound-api-v1-b9d2d3ba/1.0.23+6573ed8c19/fabric-sound-api-v1-b9d2d3ba-1.0.23+6573ed8c19.jar
 [Architectury Transformer DEBUG]  - /Users/dmytro/Projects/minecraft mods/soul_shard/.gradle/loom-cache/remapped_mods/remapped/net/fabricmc/fabric-api/fabric-transitive-access-wideners-v1-b9d2d3ba/6.2.0+45b9699719/fabric-transitive-access-wideners-v1-b9d2d3ba-6.2.0+45b9699719.jar
-[Architectury Transformer] Read classpath in 1.823 s
-[Architectury Transformer DEBUG] Closed File Systems for /Users/dmytro/Projects/minecraft mods/soul_shard/common/build/devlibs/soul_shard-common-1.0.0-dev.jar
-[Architectury Transformer DEBUG] Transforming 5 transformer(s) from /Users/dmytro/Projects/minecraft mods/soul_shard/common/build/devlibs/soul_shard-common-1.0.0-dev.jar to /var/folders/0c/fkxz_ps96zb31zlpt3ps_hx40000gn/T/920966465564537453.jar: 
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RuntimeMixinRefmapDetector@10e31a9a
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.GenerateFakeFabricMod@131774fe
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformExpectPlatform@158d2680
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RemapInjectables@77847718
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformPlatformOnly@7f3b84b8
-[Architectury Transformer DEBUG] Transforming from /Users/dmytro/Projects/minecraft mods/soul_shard/common/build/devlibs/soul_shard-common-1.0.0-dev.jar to /var/folders/0c/fkxz_ps96zb31zlpt3ps_hx40000gn/T/920966465564537453.jar with 5 transformer(s) on dev.architectury.transformer.handler.SimpleTransformerHandler
+[Architectury Transformer] Read classpath in 2.336 s
+[Architectury Transformer DEBUG] Closed File Systems for /Users/dmytro/Projects/minecraft mods/soul_shard/common/build/devlibs/soul_shard-common-1.1.0-dev.jar
+[Architectury Transformer DEBUG] Transforming 5 transformer(s) from /Users/dmytro/Projects/minecraft mods/soul_shard/common/build/devlibs/soul_shard-common-1.1.0-dev.jar to /var/folders/0c/fkxz_ps96zb31zlpt3ps_hx40000gn/T/16884586555814907031.jar: 
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RuntimeMixinRefmapDetector@6a192cfe
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.GenerateFakeFabricMod@5119fb47
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformExpectPlatform@7193666c
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RemapInjectables@20deea7f
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformPlatformOnly@3835c46
+[Architectury Transformer DEBUG] Transforming from /Users/dmytro/Projects/minecraft mods/soul_shard/common/build/devlibs/soul_shard-common-1.1.0-dev.jar to /var/folders/0c/fkxz_ps96zb31zlpt3ps_hx40000gn/T/16884586555814907031.jar with 5 transformer(s) on dev.architectury.transformer.handler.SimpleTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/config/SoulShardConfig with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/config/ModConfig with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/entity/SoulShardEntity with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/mixin/PlayerEntityMixin with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/ExampleMod with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/registry/ModEntities with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/SoulShardMod with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/client/render/SoulShardRenderer with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/client/model/SoulShardModel with maxs=true frames=true
 [Architectury Transformer DEBUG] Checking whether /soul_shard-common-common-refmap.json is a mixin config.
 [Architectury Transformer DEBUG] Checking whether /soul_shard.mixins.json is a mixin config.
-[Architectury Transformer DEBUG] Closed File Systems for /var/folders/0c/fkxz_ps96zb31zlpt3ps_hx40000gn/T/920966465564537453.jar
-[Architectury Transformer] Listening at /Users/dmytro/Projects/minecraft mods/soul_shard/common/build/devlibs/soul_shard-common-1.0.0-dev.jar
-[Architectury Transformer DEBUG] Temporary jar [/var/folders/0c/fkxz_ps96zb31zlpt3ps_hx40000gn/T/920966465564537453.jar] contains packages: me.konoplanyy.soulshard.registry, me.konoplanyy.soulshard.entity, me.konoplanyy.soulshard.client.model, me.konoplanyy.soulshard.client.render, me.konoplanyy.soulshard, me.konoplanyy.soulshard.mixin
-[Architectury Transformer DEBUG] Closed File Systems for /Users/dmytro/Projects/minecraft mods/soul_shard/common/build/devlibs/soul_shard-common-1.0.0-dev.jar
-[Architectury Transformer DEBUG] Classpath entry [/Users/dmytro/Projects/minecraft mods/soul_shard/fabric/build/classes/java/main] contains packages: me.konoplanyy.soulshard.fabric.client, me.konoplanyy.soulshard.fabric
+[Architectury Transformer DEBUG] Closed File Systems for /var/folders/0c/fkxz_ps96zb31zlpt3ps_hx40000gn/T/16884586555814907031.jar
+[Architectury Transformer] Listening at /Users/dmytro/Projects/minecraft mods/soul_shard/common/build/devlibs/soul_shard-common-1.1.0-dev.jar
+[Architectury Transformer DEBUG] Temporary jar [/var/folders/0c/fkxz_ps96zb31zlpt3ps_hx40000gn/T/16884586555814907031.jar] contains packages: me.konoplanyy.soulshard.registry, me.konoplanyy.soulshard.entity, me.konoplanyy.soulshard.config, me.konoplanyy.soulshard.client.model, me.konoplanyy.soulshard.client.render, me.konoplanyy.soulshard, me.konoplanyy.soulshard.mixin
+[Architectury Transformer DEBUG] Closed File Systems for /Users/dmytro/Projects/minecraft mods/soul_shard/common/build/devlibs/soul_shard-common-1.1.0-dev.jar
+[Architectury Transformer DEBUG] Classpath entry [/Users/dmytro/Projects/minecraft mods/soul_shard/fabric/build/classes/java/main] contains packages: me.konoplanyy.soulshard.fabric.client, me.konoplanyy.soulshard.config.fabric, me.konoplanyy.soulshard.fabric
 [Architectury Transformer DEBUG] Classpath entry [/Users/dmytro/Projects/minecraft mods/soul_shard/fabric/build/resources/main] contains packages: 
 [Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/entity/SoulShardEntity.class to me/konoplanyy/soulshard/entity/SoulShardEntity.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/entity/SoulShardEntity with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/entity/SoulShardEntity in 3.857 ms
-[Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/ExampleMod.class to me/konoplanyy/soulshard/ExampleMod.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/entity/SoulShardEntity in 4.734 ms
+[Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/SoulShardMod.class to me/konoplanyy/soulshard/SoulShardMod.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/ExampleMod with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/ExampleMod in 1.046 ms
+[Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/SoulShardMod with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/SoulShardMod in 1.087 ms
 [Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/registry/ModEntities.class to me/konoplanyy/soulshard/registry/ModEntities.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/registry/ModEntities with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/registry/ModEntities in 843.1 μs
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/registry/ModEntities in 876.5 μs
 [Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/client/render/SoulShardRenderer.class to me/konoplanyy/soulshard/client/render/SoulShardRenderer.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/client/render/SoulShardRenderer with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/client/render/SoulShardRenderer in 708.2 μs
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/client/render/SoulShardRenderer in 1.001 ms
 [Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/client/model/SoulShardModel.class to me/konoplanyy/soulshard/client/model/SoulShardModel.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/client/model/SoulShardModel with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/client/model/SoulShardModel in 680.2 μs
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/client/model/SoulShardModel in 819.5 μs
+[Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/config/SoulShardConfig.class to me/konoplanyy/soulshard/config/SoulShardConfig.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/config/SoulShardConfig with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/config/SoulShardConfig in 566.7 μs
+[Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/config/ModConfig.class to me/konoplanyy/soulshard/config/ModConfig.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/config/ModConfig with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/config/ModConfig in 357.6 μs

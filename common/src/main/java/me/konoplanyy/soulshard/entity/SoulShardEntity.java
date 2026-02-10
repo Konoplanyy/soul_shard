@@ -1,5 +1,6 @@
 package me.konoplanyy.soulshard.entity;
 
+import me.konoplanyy.soulshard.config.SoulShardConfig;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -34,9 +35,12 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     private final SimpleContainer inventory = new SimpleContainer(41);
 
     private UUID ownerUUID;
-
+    private int lifeTicks = 0;
     public SoulShardEntity(EntityType<? extends PathfinderMob> type, Level level){
         super(type, level);
+        if (!level.isClientSide) {
+            this.setHealth(SoulShardConfig.getConfig().getCrystalHealth());
+        }
     }
 
     public SimpleContainer getInventory(){
@@ -59,10 +63,13 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     public void dropCustomDeathLoot(ServerLevel level, DamageSource damageSource, boolean recentlyHit){
         super.dropCustomDeathLoot(level, damageSource, recentlyHit);
 
-        for (int i = 0; i < inventory.getContainerSize(); i++){
-            ItemStack stack = inventory.getItem(i);
-            if (!stack.isEmpty()){
-                this.spawnAtLocation(stack);
+        if (SoulShardConfig.getConfig().dropItemsOnBreak()){
+
+            for (int i = 0; i < inventory.getContainerSize(); i++){
+                ItemStack stack = inventory.getItem(i);
+                if (!stack.isEmpty()){
+                    this.spawnAtLocation(stack);
+                }
             }
         }
 
@@ -140,7 +147,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
 
     public static AttributeSupplier.Builder createAttributes() {
         return PathfinderMob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 10.0D)
+                .add(Attributes.MAX_HEALTH, 10D)
                 .add(Attributes.MOVEMENT_SPEED, 0.0D)
                 .add(Attributes.SCALE, 5.0D)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
@@ -160,6 +167,36 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     protected boolean isImmobile() {return true;}
     @Override
     public boolean canCollideWith(Entity entity) {return false;}
+
+    @Override
+    public void tick() {
+        super.tick();
+
+        if (!this.level().isClientSide) {
+            int lifeTimeSeconds = SoulShardConfig.getConfig().getCrystalLifeTime();
+
+            if (lifeTimeSeconds != -1) {
+                lifeTicks++;
+                int maxLifeTicks = lifeTimeSeconds * 20;
+
+                if (lifeTicks >= maxLifeTicks) {
+                    this.discard();
+                }
+            }
+        }
+    }
+    @Override
+    public boolean hurt(DamageSource source, float amount) {
+        if (!SoulShardConfig.getConfig().canDie()) {
+            return false;
+        }
+        return super.hurt(source, amount);
+    }
+
+    @Override
+    public void die(DamageSource damageSource) {
+        super.die(damageSource);
+    }
 
     @Override
     public InteractionResult interactAt(Player player, Vec3 hitPos, InteractionHand hand)

@@ -1,13 +1,9 @@
 package me.konoplanyy.soulshard.fabric;
 
-import me.konoplanyy.soulshard.client.render.SoulShardRenderer;
-import me.konoplanyy.soulshard.registry.ModEntities;
+import me.konoplanyy.soulshard.SoulShardMod;
 import net.fabricmc.api.ModInitializer;
 
-import me.konoplanyy.soulshard.ExampleMod;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-
-public final class ExampleModFabric implements ModInitializer {
+public final class SoulShardModFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         // This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -15,6 +11,6 @@ public final class ExampleModFabric implements ModInitializer {
         // Proceed with mild caution.
 
         // Run our common setup.
-        ExampleMod.init();
+        SoulShardMod.init();
     }
 }

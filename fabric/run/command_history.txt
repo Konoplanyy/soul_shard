@@ -16,3 +16,7 @@
 /kick
 /kill
 /summon soulshard:soul_shard
+/kill
+/setblock -41 127 30 lava
+/kill
+/summon soul_shard:soul_shard

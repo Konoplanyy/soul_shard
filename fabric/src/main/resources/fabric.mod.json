@@ -3,23 +3,23 @@
   "id": "soul_shard",
   "version": "${version}",
   "name": "Soul Shard",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Soul Shard — A Vanilla+ death utility that neatly contains your dropped items in a breakable crystal, keeping your loot organized while preserving the classic 5-minute risk.",
   "authors": [
-    "Me!"
+    "Konoplanyy"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://modrinth.com/mod/soul-shard",
+    "sources": "https://github.com/Konoplanyy/soul_shard"
   },
-  "license": "CC0-1.0",
+  "license": "MIT License",
   "icon": "assets/soul_shard/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "me.konoplanyy.soulshard.fabric.ExampleModFabric"
+      "me.konoplanyy.soulshard.fabric.SoulShardModFabric"
     ],
     "client": [
-      "me.konoplanyy.soulshard.fabric.client.ExampleModFabricClient"
+      "me.konoplanyy.soulshard.fabric.client.SoulShardModFabricClient"
     ]
   },
   "mixins": [

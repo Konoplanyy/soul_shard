@@ -1,0 +1,5 @@
+/kill
+/summon soul_shard:soul_shard
+/kill
+/kill 3fb36fd3-eb40-4565-ab22-24c785ac1992
+/kill
