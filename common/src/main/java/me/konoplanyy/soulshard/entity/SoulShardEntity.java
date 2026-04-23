@@ -50,6 +50,11 @@ public class SoulShardEntity extends PathfinderMob implements IGeoAnimatable{
     }
 
     @Override
+    public boolean causeFallDamage(float fallDistance, float multiplier, DamageSource source) {
+        return false;
+    }
+
+    @Override
     protected void dropCustomDeathLoot(DamageSource damageSource, int lootingMultiplier, boolean recentlyHit) {
         super.dropCustomDeathLoot(damageSource, lootingMultiplier, recentlyHit);
 

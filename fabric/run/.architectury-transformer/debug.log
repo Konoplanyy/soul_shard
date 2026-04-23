@@ -116,18 +116,19 @@
 [Architectury Transformer DEBUG]  - G:\Projects\Minecraft Mods\soul_shard\.gradle\loom-cache\remapped_mods\remapped\net\fabricmc\fabric-api\fabric-resource-loader-v0-525a49f8\0.11.12+fb82e9d777\fabric-resource-loader-v0-525a49f8-0.11.12+fb82e9d777.jar
 [Architectury Transformer DEBUG]  - G:\Projects\Minecraft Mods\soul_shard\.gradle\loom-cache\remapped_mods\remapped\net\fabricmc\fabric-api\fabric-sound-api-v1-525a49f8\1.0.14+1802ada577\fabric-sound-api-v1-525a49f8-1.0.14+1802ada577.jar
 [Architectury Transformer DEBUG]  - G:\Projects\Minecraft Mods\soul_shard\.gradle\loom-cache\remapped_mods\remapped\net\fabricmc\fabric-api\fabric-transitive-access-wideners-v1-525a49f8\4.3.2+1802ada577\fabric-transitive-access-wideners-v1-525a49f8-4.3.2+1802ada577.jar
-[Architectury Transformer] Read classpath in 1.283 s
+[Architectury Transformer] Read classpath in 1.338 s
 [Architectury Transformer DEBUG] Closed File Systems for G:\Projects\Minecraft Mods\soul_shard\common\build\devlibs\soul_shard-common-1.1.0-dev.jar
-[Architectury Transformer DEBUG] Transforming 5 transformer(s) from G:\Projects\Minecraft Mods\soul_shard\common\build\devlibs\soul_shard-common-1.1.0-dev.jar to C:\Users\d5828\AppData\Local\Temp\6468904090629082594.jar: 
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RuntimeMixinRefmapDetector@74a10858
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.GenerateFakeFabricMod@23fe1d71
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformExpectPlatform@28ac3dc3
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RemapInjectables@32eebfca
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformPlatformOnly@4e718207
-[Architectury Transformer DEBUG] Transforming from G:\Projects\Minecraft Mods\soul_shard\common\build\devlibs\soul_shard-common-1.1.0-dev.jar to C:\Users\d5828\AppData\Local\Temp\6468904090629082594.jar with 5 transformer(s) on dev.architectury.transformer.handler.SimpleTransformerHandler
+[Architectury Transformer DEBUG] Transforming 5 transformer(s) from G:\Projects\Minecraft Mods\soul_shard\common\build\devlibs\soul_shard-common-1.1.0-dev.jar to C:\Users\d5828\AppData\Local\Temp\7817057125509715807.jar: 
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RuntimeMixinRefmapDetector@4e718207
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.GenerateFakeFabricMod@1d371b2d
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformExpectPlatform@543c6f6d
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RemapInjectables@13eb8acf
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformPlatformOnly@51c8530f
+[Architectury Transformer DEBUG] Transforming from G:\Projects\Minecraft Mods\soul_shard\common\build\devlibs\soul_shard-common-1.1.0-dev.jar to C:\Users\d5828\AppData\Local\Temp\7817057125509715807.jar with 5 transformer(s) on dev.architectury.transformer.handler.SimpleTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/config/ModConfig with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/config/SoulShardConfig with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/entity/EntityFactory with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/entity/IGeoAnimatable with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/entity/SoulShardEntity with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/mixin/PlayerEntityMixin with maxs=true frames=true
@@ -135,33 +136,37 @@
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/SoulShardMod with maxs=true frames=true
 [Architectury Transformer DEBUG] Checking whether /soul_shard-common-common-refmap.json is a mixin config.
 [Architectury Transformer DEBUG] Checking whether /soul_shard.mixins.json is a mixin config.
-[Architectury Transformer DEBUG] Closed File Systems for C:\Users\d5828\AppData\Local\Temp\6468904090629082594.jar
+[Architectury Transformer DEBUG] Closed File Systems for C:\Users\d5828\AppData\Local\Temp\7817057125509715807.jar
 [Architectury Transformer] Listening at G:\Projects\Minecraft Mods\soul_shard\common\build\devlibs\soul_shard-common-1.1.0-dev.jar
-[Architectury Transformer DEBUG] Temporary jar [C:\Users\d5828\AppData\Local\Temp\6468904090629082594.jar] contains packages: me.konoplanyy.soulshard.registry, me.konoplanyy.soulshard.entity, me.konoplanyy.soulshard.config, me.konoplanyy.soulshard, me.konoplanyy.soulshard.mixin
+[Architectury Transformer DEBUG] Temporary jar [C:\Users\d5828\AppData\Local\Temp\7817057125509715807.jar] contains packages: me.konoplanyy.soulshard.registry, me.konoplanyy.soulshard.entity, me.konoplanyy.soulshard.config, me.konoplanyy.soulshard, me.konoplanyy.soulshard.mixin
 [Architectury Transformer DEBUG] Closed File Systems for G:\Projects\Minecraft Mods\soul_shard\common\build\devlibs\soul_shard-common-1.1.0-dev.jar
-[Architectury Transformer DEBUG] Classpath entry [G:\Projects\Minecraft Mods\soul_shard\fabric\build\classes\java\main] contains packages: me.konoplanyy.soulshard.fabric.client.model, me.konoplanyy.soulshard.fabric.client, me.konoplanyy.soulshard.fabric.client.entity, me.konoplanyy.soulshard.config.fabric, me.konoplanyy.soulshard.fabric.client.render, me.konoplanyy.soulshard.fabric
+[Architectury Transformer DEBUG] Classpath entry [G:\Projects\Minecraft Mods\soul_shard\fabric\build\classes\java\main] contains packages: me.konoplanyy.soulshard.fabric.client.model, me.konoplanyy.soulshard.fabric.client, me.konoplanyy.soulshard.fabric.client.entity, me.konoplanyy.soulshard.config.fabric, me.konoplanyy.soulshard.fabric.client.render, me.konoplanyy.soulshard.fabric, me.konoplanyy.soulshard.entity.fabric
 [Architectury Transformer DEBUG] Classpath entry [G:\Projects\Minecraft Mods\soul_shard\fabric\build\resources\main] contains packages: 
 [Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/entity/SoulShardEntity.class to me/konoplanyy/soulshard/entity/SoulShardEntity.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/entity/SoulShardEntity with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/entity/SoulShardEntity in 3.428 ms
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/entity/SoulShardEntity in 3.842 ms
 [Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/entity/IGeoAnimatable.class to me/konoplanyy/soulshard/entity/IGeoAnimatable.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/entity/IGeoAnimatable with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/entity/IGeoAnimatable in 215.6 μs
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/entity/IGeoAnimatable in 186.5 μs
 [Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/SoulShardMod.class to me/konoplanyy/soulshard/SoulShardMod.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/SoulShardMod with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/SoulShardMod in 905.5 μs
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/SoulShardMod in 743.2 μs
 [Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/registry/ModEntities.class to me/konoplanyy/soulshard/registry/ModEntities.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/registry/ModEntities with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/registry/ModEntities in 1.038 ms
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/registry/ModEntities in 761.7 μs
+[Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/entity/EntityFactory.class to me/konoplanyy/soulshard/entity/EntityFactory.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/entity/EntityFactory with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/entity/EntityFactory in 738.4 μs
 [Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/config/SoulShardConfig.class to me/konoplanyy/soulshard/config/SoulShardConfig.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/config/SoulShardConfig with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/config/SoulShardConfig in 957.5 μs
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/config/SoulShardConfig in 589.7 μs
 [Architectury Transformer DEBUG] Transforming from me/konoplanyy/soulshard/config/ModConfig.class to me/konoplanyy/soulshard/config/ModConfig.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing me/konoplanyy/soulshard/config/ModConfig with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/config/ModConfig in 318.6 μs
+[Architectury Transformer DEBUG] Transformed me/konoplanyy/soulshard/config/ModConfig in 215.2 μs
