@@ -9,41 +9,31 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib.animatable.GeoEntity;
-import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class SoulShardEntity extends PathfinderMob implements GeoEntity {
-    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-
-    private static final RawAnimation IDLE = RawAnimation.begin().thenLoop("idle");
-
+public class SoulShardEntity extends PathfinderMob implements IGeoAnimatable{
     private final SimpleContainer inventory = new SimpleContainer(41);
-
     private UUID ownerUUID;
     private int lifeTicks = 0;
-    public SoulShardEntity(EntityType<? extends PathfinderMob> type, Level level){
+
+    public SoulShardEntity(EntityType<? extends PathfinderMob> type, Level level) {
         super(type, level);
         if (!level.isClientSide) {
             this.setHealth(SoulShardConfig.getConfig().getCrystalHealth());
         }
     }
 
-    public SimpleContainer getInventory(){
+    public SimpleContainer getInventory() {
         return inventory;
     }
 
@@ -55,19 +45,18 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
         return this.ownerUUID == player.getUUID();
     }
 
-    public void setOwner(Player player){
+    public void setOwner(Player player) {
         ownerUUID = player.getUUID();
     }
 
     @Override
-    public void dropCustomDeathLoot(ServerLevel level, DamageSource damageSource, boolean recentlyHit){
-        super.dropCustomDeathLoot(level, damageSource, recentlyHit);
+    protected void dropCustomDeathLoot(DamageSource damageSource, int lootingMultiplier, boolean recentlyHit) {
+        super.dropCustomDeathLoot(damageSource, lootingMultiplier, recentlyHit);
 
-        if (SoulShardConfig.getConfig().dropItemsOnBreak()){
-
-            for (int i = 0; i < inventory.getContainerSize(); i++){
+        if (SoulShardConfig.getConfig().dropItemsOnBreak()) {
+            for (int i = 0; i < inventory.getContainerSize(); i++) {
                 ItemStack stack = inventory.getItem(i);
-                if (!stack.isEmpty()){
+                if (!stack.isEmpty()) {
                     this.spawnAtLocation(stack);
                 }
             }
@@ -76,53 +65,45 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
         inventory.clearContent();
     }
 
-    public void addItem(ItemStack stack){
+    public void addItem(ItemStack stack) {
         for (int i = 0; i < inventory.getContainerSize(); i++) {
-            if (inventory.getItem(i).isEmpty()){
+            if (inventory.getItem(i).isEmpty()) {
                 inventory.setItem(i, stack.copy());
                 break;
             }
         }
     }
 
-    public void setInventoryToPlayer(Player player){
+    public void setInventoryToPlayer(Player player) {
         if (player.level().isClientSide) return;
 
         var playerInv = player.getInventory();
 
-        // Зберігаємо старі речі гравця
         List<ItemStack> oldItems = new ArrayList<>();
-        for (int i = 0; i < playerInv.getContainerSize(); i++){
+        for (int i = 0; i < playerInv.getContainerSize(); i++) {
             ItemStack stack = playerInv.getItem(i);
             if (!stack.isEmpty()) {
                 oldItems.add(stack.copy());
             }
         }
 
-        // Очищаємо інвентар
         playerInv.clearContent();
 
-        // Копіюємо речі з кристала на точні позиції
-        for (int i = 0; i < 36; i++){
+        for (int i = 0; i < 36; i++) {
             ItemStack stack = inventory.getItem(i);
             playerInv.items.set(i, stack.isEmpty() ? ItemStack.EMPTY : stack.copy());
         }
 
-        // Броня
-        for (int i = 0; i < 4; i++){
+        for (int i = 0; i < 4; i++) {
             ItemStack stack = inventory.getItem(36 + i);
             playerInv.armor.set(i, stack.isEmpty() ? ItemStack.EMPTY : stack.copy());
         }
 
-        // Offhand
         ItemStack offhandStack = inventory.getItem(40);
         playerInv.offhand.set(0, offhandStack.isEmpty() ? ItemStack.EMPTY : offhandStack.copy());
 
-        // Додаємо старі речі у вільні слоти
         for (ItemStack oldStack : oldItems) {
             boolean added = false;
-
-            // Шукаємо вільний слот
             for (int i = 0; i < 36; i++) {
                 if (playerInv.items.get(i).isEmpty()) {
                     playerInv.items.set(i, oldStack);
@@ -130,14 +111,11 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
                     break;
                 }
             }
-
-            // Якщо немає місця - викидаємо під гравцем
             if (!added) {
                 player.drop(oldStack, false);
             }
         }
 
-        // Синхронізуємо
         if (player instanceof ServerPlayer serverPlayer) {
             serverPlayer.inventoryMenu.broadcastChanges();
         }
@@ -149,24 +127,23 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
         return PathfinderMob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 10D)
                 .add(Attributes.MOVEMENT_SPEED, 0.0D)
-                .add(Attributes.SCALE, 5.0D)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
     }
 
     @Override
-    protected void pushEntities(){}
+    protected void pushEntities() {}
     @Override
-    public boolean isPushable() {return false;}
+    public boolean isPushable() { return false; }
     @Override
-    public boolean canBeCollidedWith(){return false;}
+    public boolean canBeCollidedWith() { return false; }
     @Override
     public void doPush(Entity entity) {}
     @Override
     public void push(Entity entity) {}
     @Override
-    protected boolean isImmobile() {return true;}
+    protected boolean isImmobile() { return true; }
     @Override
-    public boolean canCollideWith(Entity entity) {return false;}
+    public boolean canCollideWith(Entity entity) { return false; }
 
     @Override
     public void tick() {
@@ -177,14 +154,13 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
 
             if (lifeTimeSeconds != -1) {
                 lifeTicks++;
-                int maxLifeTicks = lifeTimeSeconds * 20;
-
-                if (lifeTicks >= maxLifeTicks) {
+                if (lifeTicks >= lifeTimeSeconds * 20) {
                     this.discard();
                 }
             }
         }
     }
+
     @Override
     public boolean hurt(DamageSource source, float amount) {
         if (!SoulShardConfig.getConfig().canDie()) {
@@ -199,28 +175,13 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public InteractionResult interactAt(Player player, Vec3 hitPos, InteractionHand hand)
-    {
-        if (!level().isClientSide && isOwner(player)){
+    public InteractionResult interactAt(Player player, Vec3 hitPos, InteractionHand hand) {
+        if (!level().isClientSide && isOwner(player)) {
             setInventoryToPlayer(player);
             inventory.clearContent();
             this.discard();
             return InteractionResult.SUCCESS;
         }
         return InteractionResult.PASS;
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers)
-    {
-        controllers.add(new AnimationController<>(this, "controller", 0, state -> {
-            state.setAnimation(IDLE);
-            return state.setAndContinue(IDLE);
-        }));
-    }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.cache;
     }
 }
