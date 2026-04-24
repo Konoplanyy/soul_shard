@@ -43,6 +43,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
         if (!level.isClientSide) {
             this.setHealth(SoulShardConfig.getConfig().getCrystalHealth());
         }
+        this.setPersistenceRequired();
     }
 
     public SimpleContainer getInventory(){
@@ -159,7 +160,6 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
                 .add(Attributes.SCALE, 5.0D)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
     }
-
     @Override
     protected void pushEntities(){}
     @Override
