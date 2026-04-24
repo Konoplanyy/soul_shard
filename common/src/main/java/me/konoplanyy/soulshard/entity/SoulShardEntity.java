@@ -1,6 +1,7 @@
 package me.konoplanyy.soulshard.entity;
 
 import me.konoplanyy.soulshard.config.SoulShardConfig;
+import net.minecraft.ChatFormatting;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -16,6 +17,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.network.chat.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -160,6 +162,13 @@ public class SoulShardEntity extends PathfinderMob implements IGeoAnimatable{
             if (lifeTimeSeconds != -1) {
                 lifeTicks++;
                 if (lifeTicks >= lifeTimeSeconds * 20) {
+                    if (SoulShardConfig.getConfig().DespawnChatNotify()){
+                        var Player = this.level().getPlayerByUUID(ownerUUID);
+                        if (Player != null) {
+                            Player.displayClientMessage(Component.literal("Your Soul Shard has despawned :(").withStyle(ChatFormatting.RED)
+                                    , false);
+                        }
+                    }
                     this.discard();
                 }
             }
@@ -177,6 +186,14 @@ public class SoulShardEntity extends PathfinderMob implements IGeoAnimatable{
     @Override
     public void die(DamageSource damageSource) {
         super.die(damageSource);
+
+        if (SoulShardConfig.getConfig().DeadChatNotify()){
+            var Player = this.level().getPlayerByUUID(ownerUUID);
+            if (Player != null) {
+                Player.displayClientMessage(Component.literal("Your Soul Shard has died :(").withStyle(ChatFormatting.RED)
+                        , false);
+            }
+        }
     }
 
     @Override

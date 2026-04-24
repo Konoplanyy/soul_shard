@@ -18,6 +18,12 @@ public class FabricSoulShardConfig implements ConfigData, ModConfig {
     public boolean dropItemsOnBreak = true;
 
     @ConfigEntry.Gui.Tooltip
+    public boolean despawnChatNotify = true;
+
+    @ConfigEntry.Gui.Tooltip
+    public boolean deadChatNotify = true;
+
+    @ConfigEntry.Gui.Tooltip
     public int crystalHealth = 10;
 
     @Override
@@ -34,6 +40,12 @@ public class FabricSoulShardConfig implements ConfigData, ModConfig {
     public boolean dropItemsOnBreak() {
         return dropItemsOnBreak;
     }
+
+    @Override
+    public boolean DespawnChatNotify() {return despawnChatNotify;}
+
+    @Override
+    public boolean DeadChatNotify() {return deadChatNotify;}
 
     @Override
     public int getCrystalHealth() {
