@@ -1,6 +1,8 @@
 package me.konoplanyy.soulshard.entity;
 
 import me.konoplanyy.soulshard.config.SoulShardConfig;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -57,6 +59,11 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
 
     public void setOwner(Player player){
         ownerUUID = player.getUUID();
+    }
+
+    @Override
+    public boolean causeFallDamage(float fallDistance, float multiplier, DamageSource source) {
+        return false;
     }
 
     @Override
@@ -177,9 +184,17 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
 
             if (lifeTimeSeconds != -1) {
                 lifeTicks++;
-                int maxLifeTicks = lifeTimeSeconds * 20;
-
-                if (lifeTicks >= maxLifeTicks) {
+                if (lifeTicks >= lifeTimeSeconds * 20) {
+                    if (SoulShardConfig.getConfig().DespawnChatNotify()){
+                        if (ownerUUID != null)
+                        {
+                            var Player = this.level().getPlayerByUUID(ownerUUID);
+                            if (Player != null) {
+                                Player.displayClientMessage(Component.literal("Your Soul Shard has despawned :(").withStyle(ChatFormatting.RED)
+                                        , false);
+                            }
+                        }
+                    }
                     this.discard();
                 }
             }
@@ -196,6 +211,15 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     @Override
     public void die(DamageSource damageSource) {
         super.die(damageSource);
+
+        if (SoulShardConfig.getConfig().DeadChatNotify()){
+            if (ownerUUID == null) return;
+            var Player = this.level().getPlayerByUUID(ownerUUID);
+            if (Player != null) {
+                Player.displayClientMessage(Component.literal("Your Soul Shard has died :(").withStyle(ChatFormatting.RED)
+                        , false);
+            }
+        }
     }
 
     @Override

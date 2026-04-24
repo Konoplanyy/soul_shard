@@ -10,6 +10,8 @@ public class NeoForgeSoulShardConfig implements ModConfig {
     private static final ModConfigSpec.IntValue CRYSTAL_LIFE_TIME;
     private static final ModConfigSpec.BooleanValue CAN_DIE;
     private static final ModConfigSpec.BooleanValue DROP_ITEMS_ON_BREAK;
+    private static final ModConfigSpec.BooleanValue DESPAWN_CHAT_NOTIFY;
+    private static final ModConfigSpec.BooleanValue DEAD_CHAT_NOTIFY;
     private static final ModConfigSpec.IntValue CRYSTAL_HEALTH;
 
     static {
@@ -31,6 +33,14 @@ public class NeoForgeSoulShardConfig implements ModConfig {
                 .comment("amount of health in the crystal")
                 .defineInRange("crystalHealth", 10, 1, Integer.MAX_VALUE);
 
+        DESPAWN_CHAT_NOTIFY = BUILDER
+                .comment("Toggle chat notifications. If true, players will receive a red message when their Soul Shard's lifetime expires.")
+                .define("dropItemsOnBreak", true);
+
+        DEAD_CHAT_NOTIFY = BUILDER
+                .comment("Sends a message to the player when their Soul Shard dies.")
+                .define("dropItemsOnBreak", true);
+
         BUILDER.pop();
     }
 
@@ -48,6 +58,16 @@ public class NeoForgeSoulShardConfig implements ModConfig {
     @Override
     public boolean dropItemsOnBreak() {
         return DROP_ITEMS_ON_BREAK.get();
+    }
+
+    @Override
+    public boolean DeadChatNotify() {
+        return DEAD_CHAT_NOTIFY.get();
+    }
+
+    @Override
+    public boolean DespawnChatNotify() {
+        return DESPAWN_CHAT_NOTIFY.get();
     }
 
     @Override
