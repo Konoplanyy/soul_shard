@@ -33,6 +33,7 @@ public class SoulShardEntity extends PathfinderMob implements IGeoAnimatable{
         if (!level.isClientSide) {
             this.setHealth(SoulShardConfig.getConfig().getCrystalHealth());
         }
+        this.setPersistenceRequired();
     }
 
     public SimpleContainer getInventory() {
@@ -136,7 +137,6 @@ public class SoulShardEntity extends PathfinderMob implements IGeoAnimatable{
                 .add(Attributes.MOVEMENT_SPEED, 0.0D)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1.0D);
     }
-
     @Override
     protected void pushEntities() {}
     @Override
