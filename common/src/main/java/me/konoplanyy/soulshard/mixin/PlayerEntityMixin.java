@@ -1,7 +1,10 @@
 package me.konoplanyy.soulshard.mixin;
 
+import me.konoplanyy.soulshard.data.InventoryHistorySavedData;
+import me.konoplanyy.soulshard.data.InventorySnapshot;
 import me.konoplanyy.soulshard.entity.SoulShardEntity;
 import me.konoplanyy.soulshard.registry.ModEntities;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.ItemStack;
@@ -14,9 +17,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class PlayerEntityMixin {
     @Inject(method = "dropEquipment", at = @At("HEAD"), cancellable = true)
     private void onDropEquipment(CallbackInfo ci) {
-        System.out.println("Речі не падають)");
+
 
         Player player = (Player) (Object) this;
+
+        if (!player.level().isClientSide && player.level() instanceof ServerLevel serverLevel) {
+            InventorySnapshot snapshot = InventorySnapshot.fromPlayer(player);
+            InventoryHistorySavedData.get(serverLevel).addSnapshot(player.getUUID(), snapshot);
+        }
 
         SoulShardEntity soulShard = new SoulShardEntity(ModEntities.SOUL_SHARD.get(), player.level());
         soulShard.setOwner(player);
