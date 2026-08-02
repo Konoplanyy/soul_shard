@@ -36,6 +36,8 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
 
     private final SimpleContainer inventory = new SimpleContainer(41);
 
+    private UUID shardId;
+
     private UUID ownerUUID;
     private int lifeTicks = 0;
     public SoulShardEntity(EntityType<? extends PathfinderMob> type, Level level){
@@ -43,6 +45,14 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
         if (!level.isClientSide) {
             this.setHealth(SoulShardConfig.getConfig().getCrystalHealth());
         }
+    }
+
+    public UUID getShardId() {
+        return shardId;
+    }
+
+    public void setShardId(UUID shardId) {
+        this.shardId = shardId;
     }
 
     public SimpleContainer getInventory(){

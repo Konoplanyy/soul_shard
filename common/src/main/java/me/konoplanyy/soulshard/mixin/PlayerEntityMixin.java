@@ -1,7 +1,11 @@
 package me.konoplanyy.soulshard.mixin;
 
+import me.konoplanyy.soulshard.data.ShardRecord;
+import me.konoplanyy.soulshard.data.ShardStorage;
 import me.konoplanyy.soulshard.entity.SoulShardEntity;
 import me.konoplanyy.soulshard.registry.ModEntities;
+import net.minecraft.core.NonNullList;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.ItemStack;
@@ -9,6 +13,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.UUID;
 
 @Mixin(Player.class)
 public class PlayerEntityMixin {
@@ -24,7 +30,6 @@ public class PlayerEntityMixin {
         var playerInv = player.getInventory();
         var crystalInv = soulShard.getInventory();
 
-        // Копіюємо основний інвентар (36 слотів)
         for (int i = 0; i < 36; i++) {
             ItemStack stack = playerInv.items.get(i);
             if (!stack.isEmpty()) {
@@ -32,7 +37,6 @@ public class PlayerEntityMixin {
             }
         }
 
-        // Копіюємо броню (4 слоти: 36-39)
         for (int i = 0; i < 4; i++) {
             ItemStack stack = playerInv.armor.get(i);
             if (!stack.isEmpty()) {
@@ -40,21 +44,32 @@ public class PlayerEntityMixin {
             }
         }
 
-        // Копіюємо offhand (слот 40)
         ItemStack offhand = playerInv.offhand.get(0);
         if (!offhand.isEmpty()) {
             crystalInv.setItem(40, offhand.copy());
         }
 
-        // Очищаємо інвентар гравця
         playerInv.clearContent();
 
-        // Спавнимо кристал
         if (!crystalInv.isEmpty()) {
             soulShard.setPos(player.getX(), player.getY(), player.getZ());
+
+            if (player.level() instanceof ServerLevel serverLevel) {
+                UUID shardId = UUID.randomUUID();
+                soulShard.setShardId(shardId);
+
+                NonNullList<ItemStack> items = NonNullList.withSize(crystalInv.getContainerSize(), ItemStack.EMPTY);
+                for (int i = 0; i < crystalInv.getContainerSize(); i++) {
+                    items.set(i, crystalInv.getItem(i));
+                }
+
+                ShardRecord shard = new ShardRecord(shardId, player.getUUID(), System.currentTimeMillis(), items);
+                ShardStorage.get(serverLevel).addShard(shard);
+            }
+
             player.level().addFreshEntity(soulShard);
         }
 
-        ci.cancel(); // Скасовуємо оригінальний drop
+        ci.cancel();
     }
 }
