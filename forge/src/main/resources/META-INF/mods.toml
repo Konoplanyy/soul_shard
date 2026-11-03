@@ -1,0 +1,41 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "MIT License"
+
+[[mods]]
+modId = "soul_shard"
+version = "${version}"
+displayName = "Soul Shard"
+authors = "Konoplanyy"
+logoFile = "assets/soul_shard/icon.jpg"
+description = '''
+ Soul Shard — A Vanilla+ death utility that neatly contains your dropped items in a breakable crystal, keeping your loot organized while preserving the classic 5-minute risk.
+'''
+
+[[dependencies.soul_shard]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.soul_shard]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,1.20.2)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.soul_shard]]
+modId = "architectury"
+mandatory = true
+versionRange = "[9.2.14,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.soul_shard]]
+modId = "geckolib"
+mandatory = true
+versionRange = "[4.4.9,)"
+ordering = "AFTER"
+side = "BOTH"
