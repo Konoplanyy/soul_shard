@@ -85,7 +85,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
             for (int i = 0; i < inventory.getContainerSize(); i++){
                 ItemStack stack = inventory.getItem(i);
                 if (!stack.isEmpty()){
-                    this.spawnAtLocation(stack);
+                    this.spawnAtLocation(level, stack);
                 }
             }
         }
@@ -210,11 +210,11 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
         }
     }
     @Override
-    public boolean hurt(DamageSource source, float amount) {
+    public boolean hurtServer(ServerLevel level, DamageSource source, float amount) {
         if (!SoulShardConfig.getConfig().canDie() && !source.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
             return false;
         }
-        return super.hurt(source, amount);
+        return super.hurtServer(level, source, amount);
     }
 
     @Override

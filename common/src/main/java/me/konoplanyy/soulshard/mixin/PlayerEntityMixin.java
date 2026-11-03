@@ -21,17 +21,16 @@ public abstract class PlayerEntityMixin {
     protected abstract void destroyVanishingCursedItems();
 
     @Inject(method = "dropEquipment", at = @At("HEAD"), cancellable = true)
-    private void onDropEquipment(CallbackInfo ci) {
+    private void onDropEquipment(ServerLevel serverLevel, CallbackInfo ci) {
         Player player = (Player) (Object) this;
 
-        // Клієнт і keepInventory обробляє ванільний код
-        if (player.level().isClientSide) return;
-        if (player.level().getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) return;
+        // keepInventory обробляє ванільний код
+        if (serverLevel.getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) return;
 
         // Прокляття зникнення, як і у ванілі
         destroyVanishingCursedItems();
 
-        if (player.level() instanceof ServerLevel serverLevel && !player.getInventory().isEmpty()) {
+        if (!player.getInventory().isEmpty()) {
             InventorySnapshot snapshot = InventorySnapshot.fromPlayer(player);
             InventoryHistorySavedData.get(serverLevel).addSnapshot(player.getUUID(), snapshot);
         }
