@@ -16,14 +16,14 @@ description = '''
 [[dependencies.soul_shard]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.11,)"
+versionRange = "[21.11,21.12)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.soul_shard]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.11,)"
+versionRange = "[1.21.11,1.22)"
 ordering = "NONE"
 side = "BOTH"
 
