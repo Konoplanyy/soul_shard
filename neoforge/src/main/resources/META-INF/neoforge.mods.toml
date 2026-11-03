@@ -16,7 +16,7 @@ description = '''
 [[dependencies.soul_shard]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.6,)"
+versionRange = "[21.6,21.9)"
 ordering = "NONE"
 side = "BOTH"
 
