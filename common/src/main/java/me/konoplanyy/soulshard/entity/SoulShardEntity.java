@@ -21,14 +21,14 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
-import software.bernie.geckolib.animatable.GeoEntity;
+import com.geckolib.animatable.GeoEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animatable.manager.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
-import software.bernie.geckolib.animation.RawAnimation;
-import software.bernie.geckolib.util.GeckoLibUtil;
+import com.geckolib.animatable.instance.AnimatableInstanceCache;
+import com.geckolib.animatable.manager.AnimatableManager;
+import com.geckolib.animation.AnimationController;
+import com.geckolib.animation.RawAnimation;
+import com.geckolib.util.GeckoLibUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -191,8 +191,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
                         {
                             var Player = this.level().getPlayerByUUID(ownerUUID);
                             if (Player != null) {
-                                Player.displayClientMessage(Component.literal("Your Soul Shard has despawned :(").withStyle(ChatFormatting.RED)
-                                        , false);
+                                Player.sendSystemMessage(Component.literal("Your Soul Shard has despawned :(").withStyle(ChatFormatting.RED));
                             }
                         }
                     }
@@ -217,8 +216,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
             if (ownerUUID == null) return;
             var Player = this.level().getPlayerByUUID(ownerUUID);
             if (Player != null) {
-                Player.displayClientMessage(Component.literal("Your Soul Shard has died :(").withStyle(ChatFormatting.RED)
-                        , false);
+                Player.sendSystemMessage(Component.literal("Your Soul Shard has died :(").withStyle(ChatFormatting.RED));
             }
         }
     }
@@ -257,7 +255,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public InteractionResult interactAt(Player player, Vec3 hitPos, InteractionHand hand)
+    public InteractionResult interact(Player player, InteractionHand hand, Vec3 hitPos)
     {
         if (!level().isClientSide() && isOwner(player)){
             setInventoryToPlayer(player);
@@ -265,7 +263,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
             this.discard();
             return InteractionResult.SUCCESS;
         }
-        return InteractionResult.PASS;
+        return super.interact(player, hand, hitPos);
     }
 
     @Override

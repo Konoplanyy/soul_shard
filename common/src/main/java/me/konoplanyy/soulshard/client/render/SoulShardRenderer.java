@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.Identifier;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import com.geckolib.renderer.GeoEntityRenderer;
 
 public class SoulShardRenderer extends GeoEntityRenderer<SoulShardEntity, SoulShardRenderState> {
     public SoulShardRenderer(EntityRendererProvider.Context context){

@@ -1,7 +1,9 @@
 package me.konoplanyy.soulshard.data;
 
 import com.mojang.serialization.Codec;
+import me.konoplanyy.soulshard.SoulShardMod;
 import net.minecraft.core.UUIDUtil;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.datafix.DataFixTypes;
 import net.minecraft.world.level.saveddata.SavedData;
@@ -11,7 +13,7 @@ import java.util.*;
 
 public class InventoryHistorySavedData extends SavedData {
 
-    private static final String NAME = "soulshard_inventory_history";
+    private static final String NAME = "inventory_history";
     private static final int MAX_SNAPSHOTS = 5;
 
     private static final Codec<InventoryHistorySavedData> CODEC = Codec
@@ -19,7 +21,7 @@ public class InventoryHistorySavedData extends SavedData {
             .xmap(InventoryHistorySavedData::fromMap, InventoryHistorySavedData::toMap);
 
     private static final SavedDataType<InventoryHistorySavedData> TYPE = new SavedDataType<>(
-            NAME,
+            Identifier.fromNamespaceAndPath(SoulShardMod.MOD_ID, NAME),
             InventoryHistorySavedData::new,
             CODEC,
             DataFixTypes.SAVED_DATA_RANDOM_SEQUENCES
