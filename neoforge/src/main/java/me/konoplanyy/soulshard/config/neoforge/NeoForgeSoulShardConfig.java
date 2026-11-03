@@ -35,11 +35,11 @@ public class NeoForgeSoulShardConfig implements ModConfig {
 
         DESPAWN_CHAT_NOTIFY = BUILDER
                 .comment("Toggle chat notifications. If true, players will receive a red message when their Soul Shard's lifetime expires.")
-                .define("dropItemsOnBreak", true);
+                .define("despawnChatNotify", true);
 
         DEAD_CHAT_NOTIFY = BUILDER
                 .comment("Sends a message to the player when their Soul Shard dies.")
-                .define("dropItemsOnBreak", true);
+                .define("deadChatNotify", true);
 
         BUILDER.pop();
     }
