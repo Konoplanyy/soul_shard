@@ -43,7 +43,7 @@ public class SoulShardCommand {
     ) throws CommandSyntaxException {
         ServerPlayer player = ctx.getSource().getPlayerOrException();
         List<InventorySnapshot> snapshots = InventoryHistorySavedData
-                .get(player.serverLevel())
+                .get(player.level())
                 .getSnapshots(player.getUUID());
 
         for (int i = 0; i < snapshots.size(); i++) {
@@ -60,7 +60,7 @@ public class SoulShardCommand {
     private static int restore(CommandContext<CommandSourceStack> ctx, int index) throws CommandSyntaxException {
         ServerPlayer player = ctx.getSource().getPlayerOrException();
         List<InventorySnapshot> snapshots = InventoryHistorySavedData
-                .get(player.serverLevel())
+                .get(player.level())
                 .getSnapshots(player.getUUID());
 
         if (index > snapshots.size()) {

@@ -3,8 +3,9 @@ package me.konoplanyy.soulshard.entity;
 import me.konoplanyy.soulshard.config.SoulShardConfig;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.UUIDUtil;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
+import net.minecraft.world.ItemStackWithSlot;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -165,7 +166,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     @Override
     public boolean isPushable() {return false;}
     @Override
-    public boolean canBeCollidedWith(){return false;}
+    public boolean canBeCollidedWith(Entity entity){return false;}
     @Override
     public void doPush(Entity entity) {}
     @Override
@@ -223,40 +224,34 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag tag) {
-        super.addAdditionalSaveData(tag);
+    public void addAdditionalSaveData(ValueOutput output) {
+        super.addAdditionalSaveData(output);
 
         if (ownerUUID != null) {
-            tag.store("Owner", UUIDUtil.CODEC, ownerUUID);
+            output.store("Owner", UUIDUtil.CODEC, ownerUUID);
         }
-        tag.putInt("LifeTicks", lifeTicks);
+        output.putInt("LifeTicks", lifeTicks);
 
-        ListTag itemsTag = new ListTag();
+        ValueOutput.TypedOutputList<ItemStackWithSlot> itemsList = output.list("Items", ItemStackWithSlot.CODEC);
         for (int i = 0; i < inventory.getContainerSize(); i++) {
             ItemStack stack = inventory.getItem(i);
             if (!stack.isEmpty()) {
-                CompoundTag itemTag = new CompoundTag();
-                itemTag.putInt("Slot", i);
-                itemsTag.add(stack.save(this.registryAccess(), itemTag));
+                itemsList.add(new ItemStackWithSlot(i, stack));
             }
         }
-        tag.put("Items", itemsTag);
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag tag) {
-        super.readAdditionalSaveData(tag);
+    public void readAdditionalSaveData(ValueInput input) {
+        super.readAdditionalSaveData(input);
 
-        ownerUUID = tag.read("Owner", UUIDUtil.CODEC).orElse(null);
-        lifeTicks = tag.getIntOr("LifeTicks", 0);
+        ownerUUID = input.read("Owner", UUIDUtil.CODEC).orElse(null);
+        lifeTicks = input.getIntOr("LifeTicks", 0);
 
         inventory.clearContent();
-        ListTag itemsTag = tag.getListOrEmpty("Items");
-        for (int i = 0; i < itemsTag.size(); i++) {
-            CompoundTag itemTag = itemsTag.getCompoundOrEmpty(i);
-            int slot = itemTag.getIntOr("Slot", -1);
-            if (slot >= 0 && slot < inventory.getContainerSize()) {
-                ItemStack.parse(this.registryAccess(), itemTag).ifPresent(stack -> inventory.setItem(slot, stack));
+        for (ItemStackWithSlot item : input.listOrEmpty("Items", ItemStackWithSlot.CODEC)) {
+            if (item.isValidInContainer(inventory.getContainerSize())) {
+                inventory.setItem(item.slot(), item.stack());
             }
         }
     }
