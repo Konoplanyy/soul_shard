@@ -2,9 +2,9 @@ package me.konoplanyy.soulshard.entity;
 
 import me.konoplanyy.soulshard.config.SoulShardConfig;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.UUIDUtil;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -24,8 +24,8 @@ import software.bernie.geckolib.animatable.GeoEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.level.Level;
 import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.animation.AnimatableManager;
-import software.bernie.geckolib.animation.AnimationController;
+import software.bernie.geckolib.animatable.manager.AnimatableManager;
+import software.bernie.geckolib.animatable.processing.AnimationController;
 import software.bernie.geckolib.animation.RawAnimation;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
@@ -72,7 +72,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
-    public boolean causeFallDamage(float fallDistance, float multiplier, DamageSource source) {
+    public boolean causeFallDamage(double fallDistance, float multiplier, DamageSource source) {
         return false;
     }
 
@@ -120,20 +120,11 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
         playerInv.clearContent();
 
         // Копіюємо речі з кристала на точні позиції
-        for (int i = 0; i < 36; i++){
+        // (0-35 основний, 36-39 броня, 40 offhand)
+        for (int i = 0; i < 41; i++){
             ItemStack stack = inventory.getItem(i);
-            playerInv.items.set(i, stack.isEmpty() ? ItemStack.EMPTY : stack.copy());
+            playerInv.setItem(i, stack.isEmpty() ? ItemStack.EMPTY : stack.copy());
         }
-
-        // Броня
-        for (int i = 0; i < 4; i++){
-            ItemStack stack = inventory.getItem(36 + i);
-            playerInv.armor.set(i, stack.isEmpty() ? ItemStack.EMPTY : stack.copy());
-        }
-
-        // Offhand
-        ItemStack offhandStack = inventory.getItem(40);
-        playerInv.offhand.set(0, offhandStack.isEmpty() ? ItemStack.EMPTY : offhandStack.copy());
 
         // Додаємо старі речі у вільні слоти
         for (ItemStack oldStack : oldItems) {
@@ -141,8 +132,8 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
 
             // Шукаємо вільний слот
             for (int i = 0; i < 36; i++) {
-                if (playerInv.items.get(i).isEmpty()) {
-                    playerInv.items.set(i, oldStack);
+                if (playerInv.getItem(i).isEmpty()) {
+                    playerInv.setItem(i, oldStack);
                     added = true;
                     break;
                 }
@@ -236,7 +227,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
         super.addAdditionalSaveData(tag);
 
         if (ownerUUID != null) {
-            tag.putUUID("Owner", ownerUUID);
+            tag.store("Owner", UUIDUtil.CODEC, ownerUUID);
         }
         tag.putInt("LifeTicks", lifeTicks);
 
@@ -256,16 +247,14 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
 
-        if (tag.hasUUID("Owner")) {
-            ownerUUID = tag.getUUID("Owner");
-        }
-        lifeTicks = tag.getInt("LifeTicks");
+        ownerUUID = tag.read("Owner", UUIDUtil.CODEC).orElse(null);
+        lifeTicks = tag.getIntOr("LifeTicks", 0);
 
         inventory.clearContent();
-        ListTag itemsTag = tag.getList("Items", Tag.TAG_COMPOUND);
+        ListTag itemsTag = tag.getListOrEmpty("Items");
         for (int i = 0; i < itemsTag.size(); i++) {
-            CompoundTag itemTag = itemsTag.getCompound(i);
-            int slot = itemTag.getInt("Slot");
+            CompoundTag itemTag = itemsTag.getCompoundOrEmpty(i);
+            int slot = itemTag.getIntOr("Slot", -1);
             if (slot >= 0 && slot < inventory.getContainerSize()) {
                 ItemStack.parse(this.registryAccess(), itemTag).ifPresent(stack -> inventory.setItem(slot, stack));
             }
@@ -287,7 +276,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers)
     {
-        controllers.add(new AnimationController<>(this, "controller", 0, state -> {
+        controllers.add(new AnimationController<SoulShardEntity>("controller", 0, state -> {
             state.setAnimation(IDLE);
             return state.setAndContinue(IDLE);
         }));

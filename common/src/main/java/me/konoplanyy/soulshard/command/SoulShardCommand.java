@@ -82,11 +82,8 @@ public class SoulShardCommand {
         var inv = player.getInventory();
         List<ItemStack> items = snapshot.items();
 
-        for (int i = 0; i < 36; i++)
-            inv.items.set(i, items.get(i).copy());
-        for (int i = 0; i < 4; i++)
-            inv.armor.set(i, items.get(36 + i).copy());
-        inv.offhand.set(0, items.get(40).copy());
+        for (int i = 0; i < 41; i++)
+            inv.setItem(i, items.get(i).copy());
 
         player.inventoryMenu.broadcastChanges();
         inv.setChanged();

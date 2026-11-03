@@ -41,26 +41,12 @@ public abstract class PlayerEntityMixin {
         var playerInv = player.getInventory();
         var crystalInv = soulShard.getInventory();
 
-        // Копіюємо основний інвентар (36 слотів)
-        for (int i = 0; i < 36; i++) {
-            ItemStack stack = playerInv.items.get(i);
+        // Копіюємо інвентар (0-35 основний, 36-39 броня, 40 offhand)
+        for (int i = 0; i < 41; i++) {
+            ItemStack stack = playerInv.getItem(i);
             if (!stack.isEmpty()) {
                 crystalInv.setItem(i, stack.copy());
             }
-        }
-
-        // Копіюємо броню (4 слоти: 36-39)
-        for (int i = 0; i < 4; i++) {
-            ItemStack stack = playerInv.armor.get(i);
-            if (!stack.isEmpty()) {
-                crystalInv.setItem(36 + i, stack.copy());
-            }
-        }
-
-        // Копіюємо offhand (слот 40)
-        ItemStack offhand = playerInv.offhand.get(0);
-        if (!offhand.isEmpty()) {
-            crystalInv.setItem(40, offhand.copy());
         }
 
         // Очищаємо інвентар гравця
