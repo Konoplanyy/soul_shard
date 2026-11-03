@@ -2,8 +2,12 @@ package me.konoplanyy.soulshard.entity;
 
 import me.konoplanyy.soulshard.config.SoulShardConfig;
 import net.minecraft.ChatFormatting;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleContainer;
@@ -31,7 +35,12 @@ public class SoulShardEntity extends PathfinderMob implements IGeoAnimatable{
     public SoulShardEntity(EntityType<? extends PathfinderMob> type, Level level) {
         super(type, level);
         if (!level.isClientSide) {
-            this.setHealth(SoulShardConfig.getConfig().getCrystalHealth());
+            int crystalHealth = Math.max(1, SoulShardConfig.getConfig().getCrystalHealth());
+            var maxHealth = this.getAttribute(Attributes.MAX_HEALTH);
+            if (maxHealth != null) {
+                maxHealth.setBaseValue(crystalHealth);
+            }
+            this.setHealth(crystalHealth);
         }
         this.setPersistenceRequired();
     }
@@ -45,7 +54,7 @@ public class SoulShardEntity extends PathfinderMob implements IGeoAnimatable{
     }
 
     public boolean isOwner(Player player) {
-        return this.ownerUUID == player.getUUID();
+        return this.ownerUUID != null && this.ownerUUID.equals(player.getUUID());
     }
 
     public void setOwner(Player player) {
@@ -159,14 +168,16 @@ public class SoulShardEntity extends PathfinderMob implements IGeoAnimatable{
         if (!this.level().isClientSide) {
             int lifeTimeSeconds = SoulShardConfig.getConfig().getCrystalLifeTime();
 
-            if (lifeTimeSeconds != -1) {
+            if (lifeTimeSeconds >= 0) {
                 lifeTicks++;
-                if (lifeTicks >= lifeTimeSeconds * 20) {
+                if (lifeTicks >= lifeTimeSeconds * 20L) {
                     if (SoulShardConfig.getConfig().DespawnChatNotify()){
-                        var Player = this.level().getPlayerByUUID(ownerUUID);
-                        if (Player != null) {
-                            Player.displayClientMessage(Component.literal("Your Soul Shard has despawned :(").withStyle(ChatFormatting.RED)
-                                    , false);
+                        if (ownerUUID != null) {
+                            var Player = this.level().getPlayerByUUID(ownerUUID);
+                            if (Player != null) {
+                                Player.displayClientMessage(Component.literal("Your Soul Shard has despawned :(").withStyle(ChatFormatting.RED)
+                                        , false);
+                            }
                         }
                     }
                     this.discard();
@@ -177,7 +188,7 @@ public class SoulShardEntity extends PathfinderMob implements IGeoAnimatable{
 
     @Override
     public boolean hurt(DamageSource source, float amount) {
-        if (!SoulShardConfig.getConfig().canDie()) {
+        if (!SoulShardConfig.getConfig().canDie() && !source.is(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
             return false;
         }
         return super.hurt(source, amount);
@@ -188,10 +199,53 @@ public class SoulShardEntity extends PathfinderMob implements IGeoAnimatable{
         super.die(damageSource);
 
         if (SoulShardConfig.getConfig().DeadChatNotify()){
+            if (ownerUUID == null) return;
             var Player = this.level().getPlayerByUUID(ownerUUID);
             if (Player != null) {
                 Player.displayClientMessage(Component.literal("Your Soul Shard has died :(").withStyle(ChatFormatting.RED)
                         , false);
+            }
+        }
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+
+        if (ownerUUID != null) {
+            tag.putUUID("Owner", ownerUUID);
+        }
+        tag.putInt("LifeTicks", lifeTicks);
+
+        ListTag itemsTag = new ListTag();
+        for (int i = 0; i < inventory.getContainerSize(); i++) {
+            ItemStack stack = inventory.getItem(i);
+            if (!stack.isEmpty()) {
+                CompoundTag itemTag = new CompoundTag();
+                itemTag.putInt("Slot", i);
+                stack.save(itemTag);
+                itemsTag.add(itemTag);
+            }
+        }
+        tag.put("Items", itemsTag);
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+
+        if (tag.hasUUID("Owner")) {
+            ownerUUID = tag.getUUID("Owner");
+        }
+        lifeTicks = tag.getInt("LifeTicks");
+
+        inventory.clearContent();
+        ListTag itemsTag = tag.getList("Items", Tag.TAG_COMPOUND);
+        for (int i = 0; i < itemsTag.size(); i++) {
+            CompoundTag itemTag = itemsTag.getCompound(i);
+            int slot = itemTag.getInt("Slot");
+            if (slot >= 0 && slot < inventory.getContainerSize()) {
+                inventory.setItem(slot, ItemStack.of(itemTag));
             }
         }
     }
