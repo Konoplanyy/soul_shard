@@ -27,7 +27,7 @@ public class SoulShardCommand {
 
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("SoulShard")
-                .requires(source -> source.hasPermission(2))
+                .requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
                 .then(Commands.literal("restore")
                         .then(Commands.argument("index", IntegerArgumentType.integer(1, 5))
                                 .suggests(SoulShardCommand::suggestSnapshots)

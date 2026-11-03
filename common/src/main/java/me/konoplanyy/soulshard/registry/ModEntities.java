@@ -6,7 +6,7 @@ import me.konoplanyy.soulshard.SoulShardMod;
 import me.konoplanyy.soulshard.entity.SoulShardEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 
@@ -18,7 +18,7 @@ public class ModEntities {
                 EntityType.Builder.of(SoulShardEntity::new, MobCategory.MISC)
                         .sized(0.1f, 0.4f)
                         .build(ResourceKey.create(Registries.ENTITY_TYPE,
-                                ResourceLocation.fromNamespaceAndPath(SoulShardMod.MOD_ID, "soul_shard"))));
+                                Identifier.fromNamespaceAndPath(SoulShardMod.MOD_ID, "soul_shard"))));
 
     public static void init(){
         ENTITIES.register();

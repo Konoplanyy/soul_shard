@@ -6,9 +6,8 @@ import me.konoplanyy.soulshard.entity.SoulShardEntity;
 import me.konoplanyy.soulshard.registry.ModEntities;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,7 +24,7 @@ public abstract class PlayerEntityMixin {
         Player player = (Player) (Object) this;
 
         // keepInventory обробляє ванільний код
-        if (serverLevel.getGameRules().getBoolean(GameRules.RULE_KEEPINVENTORY)) return;
+        if (serverLevel.getGameRules().get(GameRules.KEEP_INVENTORY)) return;
 
         // Прокляття зникнення, як і у ванілі
         destroyVanishingCursedItems();

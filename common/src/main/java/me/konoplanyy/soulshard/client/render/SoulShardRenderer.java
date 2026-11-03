@@ -2,9 +2,10 @@ package me.konoplanyy.soulshard.client.render;
 
 import me.konoplanyy.soulshard.client.model.SoulShardModel;
 import me.konoplanyy.soulshard.entity.SoulShardEntity;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 public class SoulShardRenderer extends GeoEntityRenderer<SoulShardEntity, SoulShardRenderState> {
@@ -18,7 +19,7 @@ public class SoulShardRenderer extends GeoEntityRenderer<SoulShardEntity, SoulSh
     }
 
     @Override
-    public RenderType getRenderType(SoulShardRenderState renderState, ResourceLocation texture){
-        return RenderType.entityTranslucent(texture);
+    public RenderType getRenderType(SoulShardRenderState renderState, Identifier texture){
+        return RenderTypes.entityTranslucent(texture);
     }
 }
