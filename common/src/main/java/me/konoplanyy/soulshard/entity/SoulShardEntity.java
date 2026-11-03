@@ -45,7 +45,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     private int lifeTicks = 0;
     public SoulShardEntity(EntityType<? extends PathfinderMob> type, Level level){
         super(type, level);
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             int crystalHealth = Math.max(1, SoulShardConfig.getConfig().getCrystalHealth());
             var maxHealth = this.getAttribute(Attributes.MAX_HEALTH);
             if (maxHealth != null) {
@@ -104,7 +104,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     }
 
     public void setInventoryToPlayer(Player player){
-        if (player.level().isClientSide) return;
+        if (player.level().isClientSide()) return;
 
         var playerInv = player.getInventory();
 
@@ -180,7 +180,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     public void tick() {
         super.tick();
 
-        if (!this.level().isClientSide) {
+        if (!this.level().isClientSide()) {
             int lifeTimeSeconds = SoulShardConfig.getConfig().getCrystalLifeTime();
 
             if (lifeTimeSeconds >= 0) {
@@ -259,7 +259,7 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
     @Override
     public InteractionResult interactAt(Player player, Vec3 hitPos, InteractionHand hand)
     {
-        if (!level().isClientSide && isOwner(player)){
+        if (!level().isClientSide() && isOwner(player)){
             setInventoryToPlayer(player);
             inventory.clearContent();
             this.discard();

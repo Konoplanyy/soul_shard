@@ -16,28 +16,28 @@ description = '''
 [[dependencies.soul_shard]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.6,)"
+versionRange = "[21.9,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.soul_shard]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.6,1.21.9)"
+versionRange = "[1.21.9,1.21.11)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.soul_shard]]
 modId = "geckolib"
 type = "required"
-versionRange = "[5.2.0,)"
+versionRange = "[5.3,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.soul_shard]]
 modId = "architectury"
 type = "required"
-versionRange = "[17.0.6,)"
+versionRange = "[18.0.5,)"
 ordering = "AFTER"
 side = "BOTH"
 

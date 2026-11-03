@@ -13,7 +13,7 @@ public class SoulShardRenderer extends GeoEntityRenderer<SoulShardEntity, SoulSh
     }
 
     @Override
-    public SoulShardRenderState createRenderState() {
+    public SoulShardRenderState createRenderState(SoulShardEntity animatable, Void relatedObject) {
         return new SoulShardRenderState();
     }
 
