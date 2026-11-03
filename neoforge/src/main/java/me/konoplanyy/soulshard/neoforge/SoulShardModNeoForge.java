@@ -19,7 +19,17 @@ public final class SoulShardModNeoForge {
         // 2. РЕЄСТРУЄМО АТРИБУТИ (Це виправить помилку з /summon)
         modEventBus.addListener(this::registerAttributes);
 
-        container.registerConfig(ModConfig.Type.COMMON, NeoForgeSoulShardConfig.SPEC);
+        container.registerConfig(configType(), NeoForgeSoulShardConfig.SPEC);
+    }
+
+    // У NeoForge 26.3 тип COMMON перейменовано на LOCAL, тому шукаємо за назвою, щоб один jar працював на 26.1-26.3
+    private static ModConfig.Type configType() {
+        for (ModConfig.Type type : ModConfig.Type.values()) {
+            if (type.name().equals("COMMON") || type.name().equals("LOCAL")) {
+                return type;
+            }
+        }
+        throw new IllegalStateException("No suitable config type found");
     }
 
     private void registerAttributes(EntityAttributeCreationEvent event) {

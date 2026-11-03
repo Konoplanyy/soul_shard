@@ -16,6 +16,7 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -142,7 +143,9 @@ public class SoulShardEntity extends PathfinderMob implements GeoEntity {
 
             // Якщо немає місця - викидаємо під гравцем
             if (!added) {
-                player.drop(oldStack, false);
+                ItemEntity itemEntity = new ItemEntity(player.level(), player.getX(), player.getEyeY() - 0.3D, player.getZ(), oldStack);
+                itemEntity.setDefaultPickUpDelay();
+                player.level().addFreshEntity(itemEntity);
             }
         }
 
